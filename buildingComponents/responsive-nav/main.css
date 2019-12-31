@@ -1,0 +1,165 @@
+/* 绿色 #009E7B */
+/* 字体黑 #202A41 */
+* {
+	font-family: "Lato";
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+header {
+	background-color: #009e7b;
+	padding: 20px 0;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+}
+
+/* 只占全屏幕百分之90的宽度 */
+.container {
+	color: #202a41;
+	display: flex;
+	margin: 0 auto;
+	text-align: center;
+}
+/* 文字居中 */
+.logo {
+	display: flex;
+	align-items: center;
+}
+nav {
+	margin-left: auto;
+}
+/* nav 列表 */
+ul {
+	list-style: none;
+	margin-left: auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+li {
+	margin-left: 10px;
+}
+
+li a {
+	font-size: 1.3em;
+	text-decoration: none;
+	color: #fff;
+	display: inline-block;
+	padding: 5px 20px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1500px) {
+	body {
+		background-color: black;
+	}
+	.container {
+		/* display: block; */
+		align-items: center;
+
+		/* position: relative; */
+	}
+	.logo {
+		margin-left: 1em;
+		text-align: center;
+	}
+
+	nav {
+		margin: 0;
+		opacity: 0;
+		display: none;
+		width: 100%;
+		text-align: left;
+		padding-left: 1em;
+	}
+	.hamburger {
+		margin-left: auto;
+	}
+	.ham {
+		display: block;
+		font-size: 16px;
+		position: relative;
+		width: 30px;
+		height: 3px;
+		background-color: #fff;
+	}
+	input {
+		margin-left: auto;
+		position: absolute;
+		right: 200px;
+		/* display: none; */
+	}
+	.ham::before,
+	.ham::after {
+		font-size: 16px;
+		position: absolute;
+		content: "";
+		width: 30px;
+		height: 3px;
+		display: block;
+		background-color: #fff;
+	}
+
+	.ham::before {
+		bottom: 5px;
+	}
+
+	.ham::after {
+		top: 5px;
+	}
+
+	ul {
+		/* opacity: 0; */
+		display: block;
+	}
+	li {
+		margin: 10px 0;
+	}
+	li a {
+		padding-left: 0;
+	}
+	#hamburgerIcon {
+		margin-left: auto;
+		margin-right: 1em;
+	}
+	.nav-toggle-label {
+		width: 2em;
+		height: 2px;
+		background-color: #fff;
+		display: block;
+		border-radius: 2px;
+		position: relative;
+	}
+	.nav-toggle-label span::before,
+	.nav-toggle-label span::after {
+		content: "";
+		display: block;
+		background-color: #fff;
+		width: 2em;
+		height: 2px;
+		position: absolute;
+	}
+
+	.nav-toggle-label span::before {
+		bottom: 7px;
+	}
+	.nav-toggle-label span::after {
+		top: 7px;
+	}
+	input:checked ~ nav {
+		opacity: 1;
+		display: block;
+		position: absolute;
+		top: 100%;
+		color: white;
+		background: #009e7b;
+		/* width: 100%; */
+		/* right: 0; */
+	}
+}
