@@ -30,6 +30,7 @@ header {
 .logo {
 	display: flex;
 	align-items: center;
+	margin-left: 1em;
 }
 nav {
 	margin-left: auto;
@@ -71,12 +72,15 @@ li a {
 	}
 
 	nav {
+		position: absolute;
+		top: 100%;
 		margin: 0;
 		opacity: 0;
-		display: none;
-		width: 100%;
+		left: 0;
+		right: 0;
 		text-align: left;
 		padding-left: 1em;
+		transition: 0.5s;
 	}
 	.hamburger {
 		margin-left: auto;
@@ -130,14 +134,26 @@ li a {
 	}
 	.nav-toggle-label {
 		width: 2em;
+		height: 2em;
+		/* background-color: black; */
+		display: block;
+		border-radius: 2px;
+		position: relative;
+	}
+	.nav-toggle-label span {
+		transition: 0.5s;
+		width: 2em;
 		height: 2px;
 		background-color: #fff;
 		display: block;
 		border-radius: 2px;
 		position: relative;
+		/* top: 14px; */
+		transform: translateY(14px);
 	}
 	.nav-toggle-label span::before,
 	.nav-toggle-label span::after {
+		transition: 0.5s;
 		content: "";
 		display: block;
 		background-color: #fff;
@@ -147,19 +163,40 @@ li a {
 	}
 
 	.nav-toggle-label span::before {
+		transition: 0.5s;
 		bottom: 7px;
 	}
 	.nav-toggle-label span::after {
 		top: 7px;
 	}
 	input:checked ~ nav {
-		opacity: 1;
-		display: block;
 		position: absolute;
+		opacity: 1;
 		top: 100%;
+		transform-origin: 100%;
 		color: white;
 		background: #009e7b;
 		/* width: 100%; */
 		/* right: 0; */
 	}
+
+	.open span::before {
+		opacity: 0;
+	}
+	.open span {
+		transform: rotate(45deg) translateY(20px);
+	}
+	.open span::after {
+		transform: rotate(90deg) translateX(-6px);
+	}
+
+	/* .open span::before {
+		transform: rotate(-45deg) translateY(5px);
+	}
+	.open span {
+		transform: translateX(-30px);
+	}
+	.open span::after {
+		transform: rotate(45deg) translateY(5px);
+	} */
 }
