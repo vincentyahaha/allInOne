@@ -1,27 +1,31 @@
-function styleHeaderSiblings() {
-	var headers = document.getElementsByTagName("h1");
+function styleHeaderSiblings(tag,theclass) {
+	
+	var headers = document.getElementsByTagName(tag);
 	var elem;
 	for (var i = 0; i < headers.length; i++) {
 		elem = getNextElement(headers[i].nextSibling);
 		console.log(elem);
-		console.log(elem.nextElementSibling);
-		console.log(elem.nextSibling.nextSibling);
-		elem.style.fontWeight = "bold";
-		elem.style.fontSize = "1.2em";
-	}
-
-	function getNextElement(node) {
-		console.log(node);
-		console.log(node.nextSibling);
-		if (node.nodeType == 1) {
-			console.log("1111111");
-			return node;
-		}
-		if (node.nextSibling) {
-			console.log("22222");
-			return getNextElement(node.nextSibling);
-		}
-		return null;
+		addClass(elem, theclass);
 	}
 }
-addLoadEvent(styleHeaderSiblings);
+function getNextElement(node) {
+	if (node.nodeType == 1) {
+		return node;
+	}
+	if (node.nextSibling) {
+		return getNextElement(node.nextSibling);
+	}
+	return null;
+}
+function addClass(elem,value){
+	console.log(222);
+	if(elem.getAttribute('class') == null){
+		console.log('null');
+		elem.className = value;
+	}else{
+		elem.className += ' ' + value;
+	};
+}
+
+
+addLoadEvent(function(){styleHeaderSiblings('h1','intro')});
